@@ -5,3 +5,4 @@ select
     status
 
 from `dbt-tutorial`.jaffle_shop.orders
+--from jaffle_shop.orders
