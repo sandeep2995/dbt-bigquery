@@ -15,5 +15,7 @@ sources:
             description: primary key
 
   - name: stripe
+    database: dbt-tutorial  
+    schema: stripe
     tables:
       - name: payments
