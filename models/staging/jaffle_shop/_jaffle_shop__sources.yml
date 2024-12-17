@@ -2,11 +2,17 @@ version: 2
 
 sources:
   - name: jaffle_shop_practice
+    description: clone of a postgres application database
     database: dbt-tutorial  
     schema: jaffle_shop  
     tables:
       - name: orders
+        description: raw orders data
       - name: customers
+        description: raw customers data
+        columns:
+          - name: id
+            description: primary key
 
   - name: stripe
     tables:
