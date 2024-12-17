@@ -5,4 +5,3 @@ select
     status
 
 from {{ source('jaffle_shop', 'orders') }}
---from jaffle_shop.orders
