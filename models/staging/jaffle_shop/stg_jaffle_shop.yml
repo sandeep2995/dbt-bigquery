@@ -22,3 +22,8 @@ models:
                 - "returned"
                 - "completed"
                 - "return_pending"
+      - name: customer_id
+        tests:
+          - relationships:
+              field: customer_id
+              to: ref('stg_jaffle_shop__customers')
