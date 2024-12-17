@@ -9,6 +9,8 @@ Step-3: Establish connection between git and bigquery using [dbt-cloud-and-bigqu
 
 Step-4: Finish the process as detailed [here](https://docs.getdbt.com/guides/bigquery?step=1).
 
+Just for the demonstration prupose, the resulting screenshots are stored in *images* directory.
+
 ## Summary of Project files:
 ### dbt_project.yml
 You can set project-level configuration in this file.
