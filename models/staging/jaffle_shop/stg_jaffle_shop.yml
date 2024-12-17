@@ -2,18 +2,22 @@ version: 2
 
 models:
   - name: stg_jaffle_shop__customers
+    description: unique customer per row
     columns:
       - name: customer_id
+        description: primary key
         tests:
           - unique
           - not_null
   - name: stg_jaffle_shop__orders
     columns:
       - name: order_id
+        description: primary key
         tests:
           - unique
           - not_null
       - name: status
+        description: "{{ doc('order_status') }}"
         tests:
           - accepted_values:
               values:
