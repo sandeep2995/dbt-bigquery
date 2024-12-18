@@ -21,3 +21,9 @@ However, the first fruit is {{ fruits[0] }}
 {% endfor %}
 However, the color of banana is {{ fruit_colors['banana'] }}
 
+{% macro icecream(name, flavor = 'vanilla') %}
+    My favorite ice-cream is {{ name }} with {{ flavor }} flavor.
+{% endmacro %}
+
+{{ icecream(name='nyce') }}
+
