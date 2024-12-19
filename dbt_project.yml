@@ -2,8 +2,8 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-# name: 'jaffle_shop_project'
-name: 'all_dates'
+name: 'jaffle_shop_project'
+# name: 'all_dates'
 version: '1.0.0'
 config-version: 2
 
@@ -44,6 +44,4 @@ models:
       +materialized: table
     staging:
       +materialized: view
-  all_dates:
-    +materialized: table
     
