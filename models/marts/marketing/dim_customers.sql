@@ -34,7 +34,7 @@ with
         select customers.customer_id,
         sum(amount) as lifetime_amount
         from customers join orders using (customer_id)
-        join payments on order_id = payments.orderid
+        join payments using (order_id)
         where payments.status = "success"
         group by customer_id
     ),
