@@ -29,7 +29,7 @@ You can set project-level configuration in this file.
 In this file, you can metion the paths to different project modules including models, tests, etc.
 You can also mention the project/folder level materializations.
 
-### Models
+### - Models
 Models directory contains **marts** and **staging** subdirectories.
 
 **staging**: contains the sources and staging models that form the initial stages of the data pipeline.
@@ -38,26 +38,39 @@ Models directory contains **marts** and **staging** subdirectories.
 
 yml files in this directory also contains generic tests (unique, not_null, accepted_values, relationships) and documentation.
 
-### Tests
+### - Tests
 Contains singular tests. That is, the tests speicific to the business purposes.
 
-### Macros
+### - Macros
 Stores the user-defined macros to be used like dbt-provided macros such as src, ref.
 
-### dbt_packages
+### - dbt_packages
 contains the packages which we included in project, that is, in packages.yml. We need not explicitly create this directory.
 
-### target
+### - target
 contains the compiled and run code of our project. We need not explicitly create this directory.
 
 
 Rest of the directories are kept for the purpose of future project extension while preserving the modularity.
 
-### Analyses
+### - Analyses
 Stores the advanced analyses that result in the higher-level materializations.
 
-### Seeds
+### - Seeds
 Stores seeds for the sake of reproducability.
 
-### Snapshots
+### - Snapshots
 Snapshots to help preserve the desired state of the database.
+
+## Materializations:
+### - Tables
+  Materializes the model as a table in the destination warehouse.
+### - Views
+  Materializes the model as a view in the destination warehouse.
+### - Ephemeral
+  No specific materializations like table or view. Just a CTE is created which can be utilized in other models.
+### - Incremental
+  Appends the table with the newly available records only.
+### - Snapshot
+  Based on a given criteria, any changes in the selected data would be appended as new rows to the table so that we do not loss the old records. 
+  That is, change history is preserved. 
