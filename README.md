@@ -1,3 +1,15 @@
+# Execution in dbt Cloud IDE
+- **dbt run**: runs all the models
+- **dbt test**: test all the models
+- **dbt build**: runs and tests each model one-be-one according to the DAG
+- **dbt run --select < model-name >**: runs only the select model
+- **dbt run-operation < macro-name > --args < args >**: invokes and runs the given macro.
+- **dbt run -m < model-1 > < model-2 >**: runs the selected models
+- **dbt docs generate**: generates the docs
+- **dbt run --select < model-name >+**: runs the selected model and all its downstream models
+- **dbt run --select +< model-name >**: runs the upstream models and then the selected model
+- **dbt run --select +< model-name >+**: runs the upstream models, selected model and all its downstream models
+
 # dbt-bigquery
 Integrates dbt (data build tool) with the gcp bigquery
 
@@ -29,13 +41,20 @@ yml files in this directory also contains generic tests (unique, not_null, accep
 ### Tests
 Contains singular tests. That is, the tests speicific to the business purposes.
 
+### Macros
+Stores the user-defined macros to be used like dbt-provided macros such as src, ref.
+
+### dbt_packages
+contains the packages which we included in project, that is, in packages.yml. We need not explicitly create this directory.
+
+### target
+contains the compiled and run code of our project. We need not explicitly create this directory.
+
+
 Rest of the directories are kept for the purpose of future project extension while preserving the modularity.
 
 ### Analyses
 Stores the advanced analyses that result in the higher-level materializations.
-
-### Macros
-Stores the user-defined macros to be used like dbt-provided macros such as src, ref.
 
 ### Seeds
 Stores seeds for the sake of reproducability.
