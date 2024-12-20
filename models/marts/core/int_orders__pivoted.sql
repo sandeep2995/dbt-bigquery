@@ -5,9 +5,9 @@ with payments as (
 ),
 
 pivoted as (
-    select orderid as order_id,
+    select order_id,
     {% for paymentmethod in payment_methods -%}
-        sum(case when paymentmethod = '{{ paymentmethod }}' then amount else 0 end) as {{ paymentmethod }}_amount
+        sum(case when payment_method = '{{ paymentmethod }}' then amount else 0 end) as {{ paymentmethod }}_amount
         {%- if not loop.last -%}
             ,
         {%- endif %}
