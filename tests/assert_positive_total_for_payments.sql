@@ -1,6 +1,6 @@
 with payments as (select * from {{ ref("stg_stripe__payments") }})
 
-select orderid, sum(amount) as total_amount
+select order_id, sum(amount) as total_amount
 from payments
-group by orderid
+group by order_id
 having total_amount < 0
