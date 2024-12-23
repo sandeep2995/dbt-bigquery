@@ -9,6 +9,7 @@
 - **dbt run --select < model-name >+**: runs the selected model and all its downstream models
 - **dbt run --select +< model-name >**: runs the upstream models and then the selected model
 - **dbt run --select +< model-name >+**: runs the upstream models, selected model and all its downstream models
+- **dbt snapshot**: execute the snapshot models.
 
 # dbt-bigquery
 Integrates dbt (data build tool) with the gcp bigquery
@@ -50,6 +51,8 @@ contains the packages which we included in project, that is, in packages.yml. We
 ### - target
 contains the compiled and run code of our project. We need not explicitly create this directory.
 
+### - Snapshots
+Snapshots to help preserve the desired state of the database.
 
 Rest of the directories are kept for the purpose of future project extension while preserving the modularity.
 
@@ -59,8 +62,6 @@ Stores the advanced analyses that result in the higher-level materializations.
 ### - Seeds
 Stores seeds for the sake of reproducability.
 
-### - Snapshots
-Snapshots to help preserve the desired state of the database.
 
 ## Materializations:
 ### - Tables
@@ -68,9 +69,13 @@ Snapshots to help preserve the desired state of the database.
 ### - Views
   Materializes the model as a view in the destination warehouse.
 ### - Ephemeral
-  No specific materializations like table or view. Just a CTE is created which can be utilized in other models.
+  - No specific materializations like table or view. Just a CTE is created which can be utilized in other models.
+  - Consider it as a just reusable code snippet. Whenever this model is referred, the corresponding code snippet gets copied over.
+  
 ### - Incremental
   Appends the table with the newly available records only.
 ### - Snapshot
-  Based on a given criteria, any changes in the selected data would be appended as new rows to the table so that we do not loss the old records. 
+  - Based on a given criteria, any changes in the selected data would be appended as new rows to the table so that we do not loss the old records. 
   That is, change history is preserved. 
+  - This is never fully refreshed unlike incremental model.
+  - This is stored separately from the typical destination tables and views. As this is a raw data, we never want to lose it.

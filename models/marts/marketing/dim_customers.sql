@@ -31,11 +31,10 @@ with
     ),
 
     customer_payments as (
-        select customers.customer_id,
+        select customer_id,
         sum(amount) as lifetime_amount
-        from customers join orders using (customer_id)
-        join payments on order_id = payments.orderid
-        where payments.status = "success"
+        from {{ ref('fct_orders') }}
+        where payment_status = "success"
         group by customer_id
     ),
 
