@@ -50,6 +50,8 @@ contains the packages which we included in project, that is, in packages.yml. We
 ### - target
 contains the compiled and run code of our project. We need not explicitly create this directory.
 
+### - Snapshots
+Snapshots to help preserve the desired state of the database.
 
 Rest of the directories are kept for the purpose of future project extension while preserving the modularity.
 
@@ -59,8 +61,6 @@ Stores the advanced analyses that result in the higher-level materializations.
 ### - Seeds
 Stores seeds for the sake of reproducability.
 
-### - Snapshots
-Snapshots to help preserve the desired state of the database.
 
 ## Materializations:
 ### - Tables
