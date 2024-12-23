@@ -9,6 +9,7 @@
 - **dbt run --select < model-name >+**: runs the selected model and all its downstream models
 - **dbt run --select +< model-name >**: runs the upstream models and then the selected model
 - **dbt run --select +< model-name >+**: runs the upstream models, selected model and all its downstream models
+- **dbt snapshot**: execute the snapshot models.
 
 # dbt-bigquery
 Integrates dbt (data build tool) with the gcp bigquery
