@@ -1,4 +1,4 @@
-{% snapshot mock_orders %}
+{% snapshot mock_orders_snapshot %}
 
 {% set new_schema = target.schema + '_snapshot' %}
     {{
@@ -13,4 +13,5 @@
     }}
 
     select * from `{{ target.project }}.{{ target.schema }}.mock_orders`
+    order by order_id
  {% endsnapshot %}
