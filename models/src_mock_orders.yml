@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: dbt_svidyapu
+    database: amazing-source-444307-s8
+    schema: dbt_svidyapu
+    tables:
+      - name: mock_orders
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+              
